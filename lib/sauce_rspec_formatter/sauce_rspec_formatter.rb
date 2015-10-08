@@ -3,26 +3,18 @@ require 'rspec/core/formatters/progress_formatter'
 class SauceProgressFormatter < RSpec::Core::Formatters::ProgressFormatter
   RSpec::Core::Formatters.register self, :example_failed, :dump_failures
 
-  # @method example_failed
-  # @api public
-  # @group Example Notifications
-  #
   # Invoked when an example fails.
   #
-  # @param notification [ExampleNotification] containing example subclass
-  #   of `RSpec::Core::Example`
-  def example_failed(notification)
+  # @param failed_example_notification [RSpec::Core::Notifications::FailedExampleNotification]
+  # containing example subclass of `RSpec::Core::Example`
+  def example_failed(failed_example_notification)
     super
   end
 
-  # @method dump_failures
-  # @api public
-  # @group Suite Notifications
-  #
   # Dumps detailed information about each example failure.
   #
-  # @param notification [NullNotification]
-  def dump_failures(notification)
+  # @param examples_notification [RSpec::Core::Notifications::ExamplesNotification]
+  def dump_failures(examples_notification)
     super
   end
 end
