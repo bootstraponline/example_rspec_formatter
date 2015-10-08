@@ -1,7 +1,32 @@
-require 'rspec/core/formatters/base_text_formatter'
+require 'rspec/core/formatters/progress_formatter'
 
-class SauceRSpecFormatter < BaseTextFormatter
+class SauceProgressFormatter < RSpec::Core::Formatters::ProgressFormatter
   RSpec::Core::Formatters.register self, :example_failed, :dump_failures
+
+  # @method example_failed
+  # @api public
+  # @group Example Notifications
+  #
+  # Invoked when an example fails.
+  #
+  # @param notification [ExampleNotification] containing example subclass
+  #   of `RSpec::Core::Example`
+  def example_failed(notification)
+    super
+  end
+
+  # @method dump_failures
+  # @api public
+  # @group Suite Notifications
+  #
+  # Dumps detailed information about each example failure.
+  #
+  # @param notification [NullNotification]
+  def dump_failures(notification)
+    # code from base_text_formatter
+    return if notification.failure_notifications.empty?
+    output.puts notification.fully_formatted_failed_examples
+  end
 end
 
 =begin
@@ -18,24 +43,6 @@ example.cap
 "https://saucelabs.com/beta/tests/#{example.session_id}"
 
 --
-
-# @method dump_failures
-# @api public
-# @group Suite Notifications
-#
-# Dumps detailed information about each example failure.
-#
-# @param notification [NullNotification]
-
-# @method example_failed
-# @api public
-# @group Example Notifications
-#
-# Invoked when an example fails.
-#
-# @param notification [ExampleNotification] containing example subclass
-#   of `RSpec::Core::Example`
-
 
 SauceOnDemandSessionID=11111122222233334444 job-name=Sign in page loads successfully
   loads successfully
