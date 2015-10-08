@@ -23,9 +23,7 @@ class SauceProgressFormatter < RSpec::Core::Formatters::ProgressFormatter
   #
   # @param notification [NullNotification]
   def dump_failures(notification)
-    # code from base_text_formatter
-    return if notification.failure_notifications.empty?
-    output.puts notification.fully_formatted_failed_examples
+    super
   end
 end
 

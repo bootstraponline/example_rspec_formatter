@@ -1,4 +1,4 @@
-require_relative '../../../lib/sauce_rspec_formatter'
+require_relative '../../lib/sauce_rspec_formatter'
 
 RSpec.configure do |config|
   config.formatter = SauceProgressFormatter
