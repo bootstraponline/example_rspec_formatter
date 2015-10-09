@@ -14,7 +14,7 @@ Pending: (Failures listed here are expected and do not affect your suite's statu
 
 Failures:
 
-  1) x fails logically
+  1) x fails logically - added description 2!
      Failure/Error: expect(1).to eq 2
        
        expected: 2
@@ -23,31 +23,31 @@ Failures:
        (compared using ==)
      # ./spec/formatter_spec.rb:9:in `block (2 levels) in <top (required)>'
 
-  2) x raises a simple error
+  2) x raises a simple error - added description 2!
      Failure/Error: raise 'shallow failure'
      RuntimeError:
        shallow failure
      # ./spec/formatter_spec.rb:24:in `block (2 levels) in <top (required)>'
 
-  3) x raises a hidden error
+  3) x raises a hidden error - added description 2!
      Failure/Error: raise error
      ExceptionWrappingException:
        There is an error in this error.
      # ./spec/formatter_spec.rb:30:in `block (2 levels) in <top (required)>'
 
-  4) x ancestors does not add ancestors on failure
+  4) x ancestors does not add ancestors on failure - added description 2!
      Failure/Error: raise "BAM"
      RuntimeError:
        BAM
      # ./spec/formatter_spec.rb:42:in `block (3 levels) in <top (required)>'
 
-Finished in 0.02784 seconds (files took 0.16702 seconds to load)
+Finished in 0.02334 seconds (files took 0.11363 seconds to load)
 9 examples, 4 failures, 1 pending
 
 Failed examples:
 
-rspec ./spec/formatter_spec.rb:8 # x fails logically
-rspec ./spec/formatter_spec.rb:23 # x raises a simple error
-rspec ./spec/formatter_spec.rb:27 # x raises a hidden error
-rspec ./spec/formatter_spec.rb:41 # x ancestors does not add ancestors on failure
+rspec ./spec/formatter_spec.rb:8 # x fails logically - added description 2!
+rspec ./spec/formatter_spec.rb:23 # x raises a simple error - added description 2!
+rspec ./spec/formatter_spec.rb:27 # x raises a hidden error - added description 2!
+rspec ./spec/formatter_spec.rb:41 # x ancestors does not add ancestors on failure - added description 2!
 
