@@ -1,4 +1,4 @@
-# sauce_rspec_formatter
+# example_rspec_formatter
 
 Simple example of a custom RSpec formatter.
 
