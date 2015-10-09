@@ -1,13 +1,14 @@
 require 'rspec/core/formatters/progress_formatter'
 
 class SauceProgressFormatter < RSpec::Core::Formatters::ProgressFormatter
-  RSpec::Core::Formatters.register self, :example_failed, :dump_failures
+  RSpec::Core::Formatters.register self, :example_failed, :dump_failures, :dump_summary
 
   # Invoked when an example fails.
   #
   # @param failed_example_notification [RSpec::Core::Notifications::FailedExampleNotification]
   # containing example subclass of `RSpec::Core::Example`
   def example_failed(failed_example_notification)
+    # responsible for printing an 'F' to stdout
     super
   end
 
@@ -15,6 +16,17 @@ class SauceProgressFormatter < RSpec::Core::Formatters::ProgressFormatter
   #
   # @param examples_notification [RSpec::Core::Notifications::ExamplesNotification]
   def dump_failures(examples_notification)
+    # responsible for 'Failures:' detailed info
+    super
+  end
+
+  # This method is invoked after the dumping of examples and failures.
+  # Each parameter is assigned to a corresponding attribute.
+  #
+  # @param summary [SummaryNotification] containing duration,
+  #   example_count, failure_count and pending_count
+  def dump_summary(summary)
+    # responsible for 'Failed examples:' summary
     super
   end
 end
